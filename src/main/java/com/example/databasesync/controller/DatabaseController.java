@@ -22,6 +22,12 @@ public class DatabaseController {
     private static final Logger logger = LoggerFactory.getLogger(DatabaseController.class);
     private static final String DB_FILE_PATH = "database/budget_explorer_db";
 
+    @GetMapping("/health")
+    public ResponseEntity<String> healthCheck() {
+        logger.info("Health check endpoint called");
+        return ResponseEntity.ok("Server is running");
+    }
+
     @GetMapping("/download")
     public ResponseEntity<Resource> downloadDatabase() {
         try {
