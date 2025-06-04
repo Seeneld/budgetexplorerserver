@@ -11,8 +11,10 @@
     </parent>
 
     <groupId>com.example</groupId>
-    <artifactId>database-sync-server</artifactId>
+    <artifactId>databasesync</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <name>Database Sync Server</name>
+    <description>Server for database synchronization</description>
 
     <properties>
         <java.version>11</java.version>
