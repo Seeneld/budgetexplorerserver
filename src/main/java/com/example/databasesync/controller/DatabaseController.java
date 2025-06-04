@@ -39,7 +39,7 @@ public class DatabaseController {
     }
 
     @PostMapping("/upload")
-    public ResponseEntity<String> uploadDatabase(@RequestParam("file") MultipartFile file) {
+    public ResponseEntity<String> uploadDatabase(@RequestBody byte[] fileData) {
         try {
             // Создаем директорию, если она не существует
             Path directory = Paths.get("database");
@@ -49,7 +49,7 @@ public class DatabaseController {
 
             // Сохраняем файл
             Path filePath = Paths.get(DB_FILE_PATH);
-            Files.copy(file.getInputStream(), filePath, java.nio.file.StandardCopyOption.REPLACE_EXISTING);
+            Files.write(filePath, fileData);
 
             return ResponseEntity.ok("База данных успешно загружена");
         } catch (IOException e) {
